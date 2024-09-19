@@ -2,7 +2,9 @@ package com.kenzi.services.impl;
 
 import com.kenzi.dtos.ActivityDto;
 import com.kenzi.models.Activity;
+import com.kenzi.models.User;
 import com.kenzi.repositories.ActivityRepository;
+import com.kenzi.repositories.UserRepository;
 import com.kenzi.services.IActivityService;
 
 import org.springframework.stereotype.Service;
@@ -15,16 +17,28 @@ import java.util.Optional;
 public class ActivityServiceImpl implements IActivityService {
 
     private final ActivityRepository activityRepository;
+    private final UserRepository userRepository;
 
-    public ActivityServiceImpl(ActivityRepository activityRepository) {
+    public ActivityServiceImpl(ActivityRepository activityRepository, UserRepository userRepository) {
         this.activityRepository = activityRepository;
+        this.userRepository = userRepository;
     }
 
 
 
     @Override
+
     public Activity saveActivity(Activity activity) {
-        return activityRepository.save(activity);
+            // Vérifiez si l'utilisateur existe
+            Optional<User> userOptional = userRepository.findById(activity.getUser().getId());
+            if (!userOptional.isPresent()) {
+                throw new RuntimeException("User not found");
+            }
+            // Associez l'utilisateur à l'activité
+            activity.setUser(userOptional.get());
+            // Enregistrez l'activité
+            return activityRepository.save(activity);
+
     }
 
     @Override
@@ -54,10 +68,10 @@ public class ActivityServiceImpl implements IActivityService {
         return activityRepository.findTopCalorieBurningActivities(userId, limit);
     }
 
-    @Override
-    public ActivityDto getActivityStatistics(Long userId, LocalDate startDate, LocalDate endDate) {
-        return activityRepository.getActivityStatistics(userId, startDate, endDate);
-    }
+
+   /* public ActivityDto getActivityStatistics(Long userId, LocalDate startDate, LocalDate endDate) {
+        return activityRepository.getActivityStatistics(userId, startDate.atStartOfDay(), endDate.atStartOfDay());
+    }*/
 
     @Override
     public List<Object[]> getMostActiveDays(Long userId, int limit) {

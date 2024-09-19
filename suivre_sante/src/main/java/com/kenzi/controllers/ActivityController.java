@@ -23,7 +23,7 @@ public class ActivityController {
     }
 
 
-    @PostMapping
+    @PostMapping("/add")
         public ResponseEntity<Activity> createActivity(@RequestBody Activity activity) {
             return ResponseEntity.ok(activityService.saveActivity(activity));
         }
@@ -63,13 +63,13 @@ public class ActivityController {
             return ResponseEntity.ok(activityService.getTopCalorieBurningActivities(userId, limit));
         }
 
-        @GetMapping("/user/{userId}/statistics")
+      /*  @GetMapping("/user/{userId}/statistics")
         public ResponseEntity<ActivityDto> getActivityStatistics(
                 @PathVariable Long userId,
                 @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
                 @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
             return ResponseEntity.ok(activityService.getActivityStatistics(userId, startDate, endDate));
-        }
+        }*/
 
         @GetMapping("/user/{userId}/most-active-days")
         public ResponseEntity<List<Object[]>> getMostActiveDays(

@@ -4,10 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data @AllArgsConstructor @NoArgsConstructor
+@Data
 public class ActivityDto {
-    private Long count;         // Nombre total d'activités
-    private Integer totalDuration; // Durée totale des activités (en minutes)
-    private Double averageCalories; // Calories moyennes brûlées par activité
-
+    private Long userId;
+    private Long totalActivities;
+    private Double totalDistance;
+    private Integer totalCalories;
+    public ActivityDto(Long userId, Long totalActivities, Double totalDistance, Integer totalCalories) {
+        this.userId = userId;
+        this.totalActivities = totalActivities;
+        this.totalDistance = totalDistance;
+        this.totalCalories = totalCalories;
+    }
 }

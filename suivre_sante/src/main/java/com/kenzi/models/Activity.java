@@ -33,7 +33,7 @@ public class Activity {
 
     private String notes;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 }
