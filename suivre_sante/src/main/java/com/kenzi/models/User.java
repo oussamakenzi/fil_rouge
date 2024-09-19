@@ -29,4 +29,6 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<Activity> activities;
+    @OneToMany(mappedBy = "user")
+    private List<Appointment> appointments;
 }
