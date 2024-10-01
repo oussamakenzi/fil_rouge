@@ -14,7 +14,7 @@ public interface DoctorMapper {
     DoctorMapper INSTANCE = Mappers.getMapper(DoctorMapper.class);
 
     @Mapping(target = "certificationIds", expression = "java(doctor.getCertifications().stream().map(cert -> cert.getId()).toList())")
-    @Mapping(target = "medicalRecordIds", expression = "java(doctor.getMedicalRecords().stream().map(record -> record.getId()).toList())")
+    //@Mapping(target = "medicalRecordIds", expression = "java(doctor.getMedicalRecords().stream().map(record -> record.getId()).toList())")
     @Mapping(target = "appointmentIds", expression = "java(doctor.getAppointments().stream().map(app -> app.getId()).toList())")
     DoctorDto doctorToDTO(Doctor doctor);
 

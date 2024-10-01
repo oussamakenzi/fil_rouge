@@ -5,11 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
-
 @Entity
-@Data @NoArgsConstructor @AllArgsConstructor
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,15 +29,16 @@ public class Doctor {
     private String hopital;
     private String biographie;
     private String photoProfil;
-    @OneToMany
-    private List<Certifications> certifications ;
-    @OneToMany
-    private  List<MedicalRecord> medicalRecords;
-    @OneToMany
-    private List<Appointment> appointments;
 
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "doctor_id")
+    private List<Certifications> certifications = new ArrayList<>();
 
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "doctor_id")
+    private List<MedicalRecord> medicalRecords = new ArrayList<>();
 
-
-
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "doctor_id")
+    private List<Appointment> appointments = new ArrayList<>();
 }

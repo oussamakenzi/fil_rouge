@@ -19,4 +19,6 @@ public class MedicalRecord {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+
 }
