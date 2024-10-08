@@ -20,5 +20,8 @@ public interface IActivityService {
         List<Object[]> getRecurringActivities(Long userId, int minOccurrences);
         void deleteActivity(Long id);
         Activity updateActivity(Long id, Activity activityDetails);
+        private void method3(){
+            System.out.println("hello");
+        }
     }
 
