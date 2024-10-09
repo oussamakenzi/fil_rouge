@@ -1,12 +1,9 @@
 package com.kenzi.services;
 
-
-import com.kenzi.dtos.ActivityDto;
 import com.kenzi.models.Activity;
 import com.kenzi.models.User;
 import com.kenzi.repositories.ActivityRepository;
 import com.kenzi.repositories.UserRepository;
-import com.kenzi.services.IActivityService;
 import com.kenzi.services.impl.ActivityServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
