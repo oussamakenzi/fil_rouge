@@ -1,28 +1,15 @@
+// Admin.java
 package com.kenzi.models;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.EqualsAndHashCode;
 
 @Entity
+@DiscriminatorValue("ADMIN")
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class Admin {
-
-
-    @Id
-    @GeneratedValue
-    private Long id;
-    private String username;
-    private String email;
-    private String firstName;
-    private String lastName;
-
-
-
-
+@EqualsAndHashCode(callSuper = true)
+public class Admin extends User {
+    // Ajoutez des attributs spécifiques à Admin si nécessaire
 }

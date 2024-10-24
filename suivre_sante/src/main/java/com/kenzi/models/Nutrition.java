@@ -31,6 +31,6 @@ public class Nutrition {
     private LocalDate date;
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private Patient patient;
 
 }

@@ -9,6 +9,5 @@ import java.util.List;
 
 @Repository
 public interface SleepRecordRepository extends JpaRepository<SleepRecord, Long> {
-    List<SleepRecord> findByUserIdAndDateBetween(Long userId, LocalDate startDate, LocalDate endDate);
-    List<SleepRecord> findByUserId(Long userId);
+
 }

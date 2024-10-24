@@ -1,4 +1,4 @@
-package com.kenzi.controllers;
+/*package com.kenzi.controllers;
 
 import com.kenzi.dtos.NutritionDTO;
 import com.kenzi.services.impl.NutritionService;
@@ -42,4 +42,4 @@ public class NutritionController {
         List<NutritionDTO> nutritionList = nutritionService.getNutritionByUserIdAndDateRange(userId, startDate, endDate);
         return ResponseEntity.ok(nutritionList);
     }
-}
+}*/

@@ -4,9 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.Date;
+
 
 @Data
 @NoArgsConstructor
@@ -14,7 +15,7 @@ import java.util.Date;
 public class AppointmentDto {
     private Long id;
     private String clinicAddress;
-    private Date appointmentDate;
+    private LocalDate appointmentDate;
     private LocalTime appointmentHeure;
     private Long userId;
 }

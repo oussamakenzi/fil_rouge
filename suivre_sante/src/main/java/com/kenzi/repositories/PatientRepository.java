@@ -1,12 +1,14 @@
 package com.kenzi.repositories;
 
-import com.kenzi.models.User;
+import com.kenzi.models.Patient;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
-    Optional<User> findByEmail(String email);
+public interface PatientRepository extends JpaRepository<Patient, Integer> {
+
+    Optional<Patient> findByEmail(String email);
 }

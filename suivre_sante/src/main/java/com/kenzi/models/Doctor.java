@@ -1,44 +1,50 @@
+// Doctor.java
 package com.kenzi.models;
 
+import com.kenzi.enumeration.Genre;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
 
 @Entity
+@DiscriminatorValue("DOCTOR")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Doctor {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String password;
+@EqualsAndHashCode(callSuper = true)
+public class Doctor extends User {
+
+    @Column(nullable = false)
     private String telephone;
+
+    @Column(nullable = false)
     private String specialite;
+
+    @Column(columnDefinition = "TEXT")
     private String adresse;
-    private String dateNaissance;
-    private String genre;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "date_naissance")
+    private Date dateNaissance;
+
+    @Enumerated(EnumType.STRING)
+    private Genre genre;
+
     private String experience;
+
     private String hopital;
+
+    @Column(columnDefinition = "TEXT")
     private String biographie;
+
     private String photoProfil;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "doctor_id")
+    /* 
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Certifications> certifications = new ArrayList<>();
-
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "doctor_id")
-    private List<MedicalRecord> medicalRecords = new ArrayList<>();
-
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "doctor_id")
-    private List<Appointment> appointments = new ArrayList<>();
+    */
 }

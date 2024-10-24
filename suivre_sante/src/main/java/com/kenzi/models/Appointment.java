@@ -21,6 +21,6 @@ public class Appointment {
     private LocalTime appointmentHeure;
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private Patient patient;
 
 }

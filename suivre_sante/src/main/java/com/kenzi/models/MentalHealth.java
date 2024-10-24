@@ -22,5 +22,5 @@ public class MentalHealth {
     private LocalDate date; // Date de l'entrée
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private Patient patient;
 }

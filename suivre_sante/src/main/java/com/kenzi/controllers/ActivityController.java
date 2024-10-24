@@ -1,3 +1,4 @@
+/*
 package com.kenzi.controllers;
 
 import com.kenzi.dtos.ActivityDto;
@@ -69,7 +70,7 @@ public class ActivityController {
                 @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
                 @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
             return ResponseEntity.ok(activityService.getActivityStatistics(userId, startDate, endDate));
-        }*/
+        }
 
         @GetMapping("/user/{userId}/most-active-days")
         public ResponseEntity<List<Object[]>> getMostActiveDays(
@@ -95,6 +96,6 @@ public class ActivityController {
             activityService.deleteActivity(id);
             return ResponseEntity.ok().build();
         }
-}
+} */
 
 

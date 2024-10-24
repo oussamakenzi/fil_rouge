@@ -1,4 +1,4 @@
-package com.kenzi.controllers;
+/*package com.kenzi.controllers;
 
 import com.kenzi.models.SleepRecord;
 import com.kenzi.services.impl.SleepRecordService;
@@ -52,4 +52,4 @@ public class SleepRecordController {
         sleepRecordService.deleteSleepRecord(id);
         return ResponseEntity.noContent().build();
     }
-}
+}*/
